@@ -123,7 +123,20 @@ function alexander_shnipov_menus()
 // хук событие
 add_action('init', 'alexander_shnipov_menus');
 
-// 
+//! добавить класс к пунктам меню
+// add_filter( 'nav_menu_css_class', 'custom_nav_menu_css_class', 10, 1);
+// function custom_nav_menu_css_class($classes){
+//   $classes[] = 'nav-item';
+//   return $classes;
+// }
+
+// ! повесить на все ссылки класс
+// add_filter( 'nav_menu_link_attributes', 'custom_nav_menu_link_attributes', 10, 1 );
+// function custom_nav_menu_link_attributes ($atts) {
+//   $atts['class'] = 'nav-link';
+//   return $atts;
+// }
+
 
 // menu Bootstrap
 class bootstrap_4_walker_nav_menu extends Walker_Nav_menu
@@ -894,70 +907,109 @@ class Bootstrap_Walker_Comment extends Walker
       'hierarchical'       => false,
       'menu_position'      => 5,
       'supports'           => array('title', 'editor', 'author', 'thumbnail', 'excerpt')
-    ));  
+    ));
 
     // ! регистрация нового типа записей - партнеры
 
-      register_post_type('partners', array(
-        'labels'             => array(
-          'name'               => __('Партнеры'), // Основное название типа записи
-          'singular_name'      => __('Партнеры'), // отдельное название записи типа Partners
-          'add_new'            => __('Добавить новую'),
-          'add_new_item'       => __('Добавить нового партнера'),
-          'edit_item'          => __('Редактировать партнера'),
-          'new_item'           => __('Новый партнер'),
-          'view_item'          => __('Посмотреть партнера'),
-          'search_items'       => __('Найти партнера'),
-          'not_found'          => __('партнеров не найдено'),
-          'not_found_in_trash' => __('В корзине партнеров не найдено'),
-          'parent_item_colon'  => '',
-          'menu_name'          => __('Партнеры')
-  
-        ),
-        'public'             => true,
-        'publicly_queryable' => true,
-        'show_ui'            => true,
-        'show_in_menu'       => true,
-        'query_var'          => true,
-        'rewrite'            => true,
-        'capability_type'    => 'post',
-        'menu_icon'          => 'dashicons-thumbs-up',
-        'has_archive'        => true,
-        'hierarchical'       => false,
-        'menu_position'      => 5,
-        'supports'           => array('title', 'editor', 'author', 'thumbnail', 'excerpt')
-      ));
-    
-     // ! регистрация нового типа записей - тарифы
+    register_post_type('partners', array(
+      'labels'             => array(
+        'name'               => __('Партнеры'), // Основное название типа записи
+        'singular_name'      => __('Партнеры'), // отдельное название записи типа Partners
+        'add_new'            => __('Добавить новую'),
+        'add_new_item'       => __('Добавить нового партнера'),
+        'edit_item'          => __('Редактировать партнера'),
+        'new_item'           => __('Новый партнер'),
+        'view_item'          => __('Посмотреть партнера'),
+        'search_items'       => __('Найти партнера'),
+        'not_found'          => __('партнеров не найдено'),
+        'not_found_in_trash' => __('В корзине партнеров не найдено'),
+        'parent_item_colon'  => '',
+        'menu_name'          => __('Партнеры')
 
-       register_post_type('price', array(
-         'labels'             => array(
-           'name'               => __('Тарифы'), // Основное название типа записи
-           'singular_name'      => __('Тариф'), // отдельное название записи типа price
-           'add_new'            => __('Добавить новый'),
-           'add_new_item'       => __('Добавить новый тариф'),
-           'edit_item'          => __('Редактировать тариф'),
-           'new_item'           => __('Новый тариф'),
-           'view_item'          => __('Посмотреть тариф'),
-           'search_items'       => __('Найти тариф'),
-           'not_found'          => __('тарифов не найдено'),
-           'not_found_in_trash' => __('В корзине тарифов не найдено'),
-           'parent_item_colon'  => '',
-           'menu_name'          => __('Тарифы')
-   
-         ),
-         'public'             => true,
-         'publicly_queryable' => true,
-         'show_ui'            => true,
-         'show_in_menu'       => true,
-         'query_var'          => true,
-         'rewrite'            => true,
-         'capability_type'    => 'post',
-         'menu_icon'          => 'dashicons-money-alt',
-         'has_archive'        => true,
-         'hierarchical'       => false,
-         'menu_position'      => 7,
-         'supports'           => array('title', 'editor', 'author', 'thumbnail', 'excerpt', 'custom-fields')
-       ));
-     }
- 
+      ),
+      'public'             => true,
+      'publicly_queryable' => true,
+      'show_ui'            => true,
+      'show_in_menu'       => true,
+      'query_var'          => true,
+      'rewrite'            => true,
+      'capability_type'    => 'post',
+      'menu_icon'          => 'dashicons-thumbs-up',
+      'has_archive'        => true,
+      'hierarchical'       => false,
+      'menu_position'      => 5,
+      'supports'           => array('title', 'editor', 'author', 'thumbnail', 'excerpt')
+    ));
+
+    // function partners_per_page($query)
+    // {
+    //   if (is_front_page()) {
+    //     $query->set('posts_per_page', 2);
+    //   }      
+    // }
+    // add_action('pre_get_posts', 'partners_per_page');
+
+    // ! регистрация нового типа записей - тарифы
+
+    register_post_type('price', array(
+      'labels'             => array(
+        'name'               => __('Тарифы'), // Основное название типа записи
+        'singular_name'      => __('Тариф'), // отдельное название записи типа price
+        'add_new'            => __('Добавить новый'),
+        'add_new_item'       => __('Добавить новый тариф'),
+        'edit_item'          => __('Редактировать тариф'),
+        'new_item'           => __('Новый тариф'),
+        'view_item'          => __('Посмотреть тариф'),
+        'search_items'       => __('Найти тариф'),
+        'not_found'          => __('тарифов не найдено'),
+        'not_found_in_trash' => __('В корзине тарифов не найдено'),
+        'parent_item_colon'  => '',
+        'menu_name'          => __('Тарифы')
+
+      ),
+      'public'             => true,
+      'publicly_queryable' => true,
+      'show_ui'            => true,
+      'show_in_menu'       => true,
+      'query_var'          => true,
+      'rewrite'            => true,
+      'capability_type'    => 'post',
+      'menu_icon'          => 'dashicons-money-alt',
+      'has_archive'        => true,
+      'hierarchical'       => false,
+      'menu_position'      => 7,
+      'supports'           => array('title', 'editor', 'author', 'thumbnail', 'excerpt', 'custom-fields')
+    ));
+
+    // ! регистрация нового типа записей - отзывы
+
+    register_post_type('testimonial', array(
+      'labels'             => array(
+        'name'               => __('Отзывы'), // Основное название типа записи
+        'singular_name'      => __('Отзыв'), // отдельное название записи типа testimonial
+        'add_new'            => __('Добавить новый'),
+        'add_new_item'       => __('Добавить новый отзыв'),
+        'edit_item'          => __('Редактировать отзыв'),
+        'new_item'           => __('Новый отзыв'),
+        'view_item'          => __('Посмотреть отзыв'),
+        'search_items'       => __('Найти отзыв'),
+        'not_found'          => __('отзывов не найдено'),
+        'not_found_in_trash' => __('В корзине отзывов не найдено'),
+        'parent_item_colon'  => '',
+        'menu_name'          => __('Отзывы')
+
+      ),
+      'public'             => true,
+      'publicly_queryable' => true,
+      'show_ui'            => true,
+      'show_in_menu'       => true,
+      'query_var'          => true,
+      'rewrite'            => true,
+      'capability_type'    => 'post',
+      'menu_icon'          => 'dashicons-testimonial',
+      'has_archive'        => true,
+      'hierarchical'       => false,
+      'menu_position'      => 8,
+      'supports'           => array('title', 'thumbnail', 'excerpt', 'custom-fields')
+    ));
+  }
