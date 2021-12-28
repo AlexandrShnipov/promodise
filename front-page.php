@@ -10,16 +10,16 @@
           <div class="col-lg-8 m-auto text-center col-sm-12 col-md-12">
             <div class="banner-content content-padding">
               <h5 class="subtitle">
-                <?php echo get_post_meta($post->ID, 'subtitle', true); ?>
+                <?php the_field('subtitle', $post->ID); ?>
               </h5>
               <h1 class="banner-title">
-                <?php echo get_post_meta($post->ID, 'banner-title', true); ?>
+                <?php the_field('title', $post->ID); ?>
               </h1>
               <p>
-                <?php echo get_post_meta($post->ID, 'banner-description', true); ?>
+                <?php the_field('banner-description', $post->ID); ?>
               </p>
 
-              <a href="#" class="btn btn-white btn-circled">Начать сотрудничество</a>
+              <a href="/contact" class="btn btn-white btn-circled"><?php the_field('banner-link', $post->ID);?></a>
             </div>
           </div>
         </div>
@@ -44,11 +44,10 @@
     <div class="row">
       <div class="col-lg-7 col-sm-12 col-md-8">
         <div class="about-content">
-          <h5 class="subtitle">О нас</h5>
-          <h3>Мы делаем рабочий инструмент <br />для вашего бизнеса</h3>
+          <h5 class="subtitle"><?php the_field('about-title', $post->ID);?></h5>
+          <h3><?php the_field('about-subtitle', $post->ID);?></h3>
           <p>
-            Мы создадим сайт про вашу компанию и вам не придется заказывать услуги у фрилансеров, переживая за сроки
-            проекта и его качество. В нашей команде есть все нужные специалисты, которые сделаю отличный сайт
+          <?php the_field('about-text', $post->ID);?>
           </p>
 
           <ul class="about-list">
@@ -77,7 +76,7 @@
 <?php echo get_template_part('template-parts/content', 'testimonial', ['custom_title' => 'Клиенты, которые доверяют нам', 'custom_text' => 'Ниже представлены отзывы от клиентов, с которыми<br />
             мы работаем уже несколько лет подряд']); ?>
 
-<?php echo get_template_part('template-parts/content', 'partners');?>
+<?php echo get_template_part('template-parts/content', 'partners'); ?>
 
 <!--  BLOG AREA START  -->
 <section id="blog" class="section-padding bg-main">
@@ -85,54 +84,66 @@
     <div class="row">
       <div class="col-lg-12 col-sm-12 m-auto">
         <div class="section-heading">
-          <h4 class="section-title">Журнал</h4>
+          <h4 class="section-title"><?php the_field('journal-title', $post->ID);?></h4>
           <div class="line"></div>
           <p>
-            Мы публикуем в блоге интересные кейсы наших клиентов, возможно, <br />
-            вы найдете много полезного для себя и своего бизнеса
+          <?php the_field('journal-text', $post->ID);?>
           </p>
         </div>
       </div>
     </div>
 
     <div class="row">
-      <div class="col-lg-4 col-sm-6 col-md-4">
-        <div class="blog-block">
-          <img src="images/blog/blog-1.jpg" alt="" class="img-fluid" />
-          <div class="blog-text">
-            <h6 class="author-name"><span>Лайфхаки</span>Иван Лазарев</h6>
-            <a href="blog-single.html" class="h5 my-2 d-inline-block"> Лучшие способы вовлечь людей в статью </a>
-            <p>Вы заметили, что статьи на вашем сайте даже не читают? Это можно легко исправить, вам поможет...</p>
+
+      <?php
+      global $post;
+
+      $query = new WP_Query([
+        'posts_per_page' => 3,
+        'poast_type' => 'post'
+      ]);
+
+      if ($query->have_posts()) {
+        while ($query->have_posts()) {
+          $query->the_post();
+      ?>
+          <!-- Вывода постов, функции цикла: the_title() и т.д. -->
+          <div class="col-lg-4 col-sm-6 col-md-4">
+            <div class="blog-block">
+              <?php
+              //должно находится внутри цикла
+              if (has_post_thumbnail()) {
+                the_post_thumbnail(
+                  'post-thumbnail',
+                  array(
+                    'class' => "img-fluid w-100"
+                  )
+                );
+              } else {
+                echo '<img class="mg-fluid w-100" src="' . get_template_directory_uri() . '/images/blog/dummy.jpg"/>';
+              }
+              ?>
+
+              <div class="blog-text">
+                <h6 class="author-name"><span>
+
+                    <?php $category = get_the_category();
+                    echo $category[0]->name; ?>
+
+                  </span><?php the_author(); ?></h6>
+                <a href="<?php echo get_the_permalink(); ?>" class="h5 my-2 d-inline-block"> <?php the_title(); ?> </a>
+                <p><? the_excerpt(); ?></p>
+              </div>
+            </div>
           </div>
-        </div>
-      </div>
-      <div class="col-lg-4 col-sm-6 col-md-4">
-        <div class="blog-block">
-          <img src="images/blog/blog-2.jpg" alt="" class="img-fluid" />
-          <div class="blog-text">
-            <h6 class="author-name"><span>Брендинг</span>Света Ключева</h6>
-            <a href="blog-single.html" class="h5 my-2 d-inline-block">
-              Как подняться в топ, даже если вы стартовали недавно</a>
-            <p>
-              Позиционирование. Вот, что нужно для быстрого поднятия сайта в топ, ну и поведенческие факторы,
-              конечно, куда без них...
-            </p>
-          </div>
-        </div>
-      </div>
-      <div class="col-lg-4 col-sm-6 col-md-4">
-        <div class="blog-block">
-          <img src="images/blog/blog-3.jpg" alt="" class="img-fluid" />
-          <div class="blog-text">
-            <h6 class="author-name"><span>Маркетинг</span>Люда Милова</h6>
-            <a href="blog-single.html" class="h5 my-2 d-inline-block"> Как запустить сайт уже завтра? </a>
-            <p>
-              Даже если ваш сайт еще только в вашей голове или на бумаге, его можно запустить всего за сутки.
-              Покажу, как это можно сделать.
-            </p>
-          </div>
-        </div>
-      </div>
+      <?php
+        }
+      } else {
+        // Постов не найдено
+      }
+
+      wp_reset_postdata(); // Сбрасываем $post
+      ?>
     </div>
   </div>
 </section>
@@ -145,28 +156,28 @@
       <div class="col-lg-3 col-sm-6 col-md-6">
         <div class="counter-stat">
           <i class="icofont icofont-heart"></i>
-          <span class="counter">460</span>
+          <span class="counter"><?php the_field('clients', $post->ID); ?></span>
           <h5>счастливых клиентов</h5>
         </div>
       </div>
       <div class="col-lg-3 col-sm-6 col-md-6">
         <div class="counter-stat">
           <i class="icofont icofont-rocket"></i>
-          <span class="counter">60</span>
+          <span class="counter"><?php the_field('done-projects', $post->ID); ?></span>
           <h5>выполненных проектов</h5>
         </div>
       </div>
       <div class="col-lg-3 col-sm-6 col-md-6">
         <div class="counter-stat">
           <i class="icofont icofont-hand-power"></i>
-          <span class="counter">30</span>
+          <span class="counter"><?php the_field('team', $post->ID); ?></span>
           <h5>людей в команде</h5>
         </div>
       </div>
       <div class="col-lg-3 col-sm-6 col-md-6">
         <div class="counter-stat">
           <i class="icofont icofont-shield-alt"></i>
-          <span class="counter">25</span>
+          <span class="counter"><?php the_field('current-project', $post->ID); ?></span>
           <h5>Проектов в работе</h5>
         </div>
       </div>

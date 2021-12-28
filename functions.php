@@ -941,13 +941,17 @@ class Bootstrap_Walker_Comment extends Walker
       'supports'           => array('title', 'editor', 'author', 'thumbnail', 'excerpt')
     ));
 
-    // function partners_per_page($query)
+    // function partners_posts_per_page($query)
     // {
     //   if (is_front_page()) {
     //     $query->set('posts_per_page', 2);
-    //   }      
+    //   } 
+    //   if (is_page_pricing()) {
+    //       $query->set('posts_per_page', 2);
+    //     } 
+        
     // }
-    // add_action('pre_get_posts', 'partners_per_page');
+    // add_action('pre_get_posts', 'partners_posts_per_page');
 
     // ! регистрация нового типа записей - тарифы
 
