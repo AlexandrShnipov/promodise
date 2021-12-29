@@ -31,8 +31,12 @@
         </div>
         <div class="row">
           <div class="col-lg-7 col-sm-12">
-            <form class="contact__form" method="post" action="mail.php">
+            <form class="contact__form" method="post" action="<?php echo admin_url('admin-ajax.php')?>">
               <!-- form message -->
+
+              <!-- ! скрытое поле для отправки сообщений стр 1021 functions.php-->
+              <input type="hidden" name="action" value="my_action">
+
               <div class="row">
                 <div class="col-12">
                   <div class="alert alert-success contact__msg" style="display: none" role="alert">

@@ -949,7 +949,7 @@ class Bootstrap_Walker_Comment extends Walker
     //   if (is_page_pricing()) {
     //       $query->set('posts_per_page', 2);
     //     } 
-        
+
     // }
     // add_action('pre_get_posts', 'partners_posts_per_page');
 
@@ -1016,4 +1016,74 @@ class Bootstrap_Walker_Comment extends Walker
       'menu_position'      => 8,
       'supports'           => array('title', 'thumbnail', 'excerpt', 'custom-fields')
     ));
+  }
+
+// ! отправка сообщений со страницы contacts
+  add_action( 'phpmailer_init', 'my_phpmailer_example' );
+function my_phpmailer_example( $phpmailer ) {
+
+	$phpmailer->isSMTP();     
+	$phpmailer->Host = 'smtp.timeweb.ru';
+	$phpmailer->SMTPAuth = true; // Force it to use Username and Password to authenticate
+	$phpmailer->Port = 25;
+	$phpmailer->Username = 'info@alexander-shnipov.ru';
+	$phpmailer->Password = 'iTQd335p';
+
+	// Additional settings…
+	//$phpmailer->SMTPSecure = "tls"; // Choose SSL or TLS, if necessary for your server
+	$phpmailer->From = "info@alexander-shnipov.ru";
+	$phpmailer->FromName = "Wordpress";
+}
+
+  add_action('wp_ajax_my_action', 'my_action_callback');
+  add_action('wp_ajax_nopriv_my_action', 'my_action_callback');
+  function my_action_callback() {
+   
+    if ($_SERVER["REQUEST_METHOD"] == "POST") {
+
+      # Подставляем почту администратора
+      $mail_to = get_option('admin_email');
+      
+      # Собираем данные из формы
+      $phone = trim($_POST["phone"]);
+      $name = trim($_POST["name"]);
+      $email = trim($_POST["email"]);
+      $message = trim($_POST["message"]);
+      
+      if ( empty($name) OR empty($email) OR empty($phone) OR empty($message)) {
+          # Отправляем ошибку 400 (bad request).
+          http_response_code(400);
+          echo "Пожалуйста заполните все обязательные поля.";
+          exit;
+      }
+      
+      # Содержимое письма
+      $subject = 'Заявка с сайта:' . get_bloginfo( 'name' );
+      $content = "Name: $name\n";
+      $content .= "Email: $email\n\n";
+      $content .= "Phone: $phone\n\n";
+      $content .= "Сообщение:\n$message\n";
+
+      # Заголовок письма email headers.
+      $headers = "From: Wordpress <info@alexander-shnipov.ru>";
+
+      # Попытка отправить с помощью  mail().
+      $success = wp_mail($mail_to, $subject, $content, $headers);
+      if ($success) {
+          # Set a 200 (okay) response code.
+          http_response_code(200);
+          echo "Спасибо! Ваше сообщение отправлено.";
+      } else {
+          # Set a 500 (internal server error) response code.
+          http_response_code(500);
+          echo "Oops! Что-то пошло не так, не получилось отправить сообщение.";
+      }
+
+  } else {
+      # Not a POST request, set a 403 (forbidden) response code.
+      http_response_code(403);
+      echo "Не получилось отправить, попробуйте позже.";
+  }
+
+    wp_die();
   }
