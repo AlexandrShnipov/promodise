@@ -183,7 +183,16 @@
       </div>
     </div>
   </div>
+  
 </section>
+<div class="row mt-5 mb-5">
+  <div class="container">
+  <h4 class="section-title"><?php the_field('contacts', $post->ID); ?></h4>
+      <?php echo do_shortcode( '[contact-form-7 id="643" title="Виджет формы"]')?>
+  </div>
+
+</div>
+
 <!--  COUNTER AREA END  -->
 
 <?php get_footer(); ?>
