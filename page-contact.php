@@ -47,14 +47,8 @@
 </section>
 <!--  CONTACT END  -->
 
-<!--  Google Map START  -->
-<section id="map" class="section-padding">
-  <div class="container">
-    <div class="row">
-      <div class="col-lg-12 col-sm-6 col-md-3"></div>
-    </div>
-  </div>
-</section>
-<!--  Google Map END  -->
+<!--  Map START  -->
+<?php the_content();?>
+<!--   Map END  -->
 
 <?php get_footer(); ?>
