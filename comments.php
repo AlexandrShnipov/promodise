@@ -25,7 +25,7 @@ if (post_password_required()) {
           // 'callback'          => null, // какая функция будет отрисовывать комменты
           // 'end-callback'      => null, // какая функция будет отрисовывать конец комментов
           'type'              => 'all',
-          'reply_text'        => __('Ответить <i class="fa fa-reply"></i>'),
+          'reply_text'        => __('Ответить <i class="fa fa-reply"></i>', 'alexander_shnipov'),
           // 'page'              => '', // к какой странице коментарий
           'per_page'          => '10', //коментариев на странице, далее появятся перелистывания
           'avatar_size'       => 80,
@@ -60,7 +60,7 @@ if (post_password_required()) {
 
         'cookies' => '<p class="comment-form-cookies-consent">' .
           '<input id="wp-comment-cookies-consent" name="wp-comment-cookies-consent" type="checkbox" value="yes"%s />', '
-      <label class="label" for="wp-comment-cookies-consent">' . __('Save my name, email, and website in this browser for the next time I comment.') . '</label>
+      <label class="label" for="wp-comment-cookies-consent">' . __('Save my name, email, and website in this browser for the next time I comment.', 'alexander_shnipov') . '</label>
    </p>',
       ],
 
@@ -69,15 +69,15 @@ if (post_password_required()) {
     </div>',
 
       'must_log_in'          => '<p class="must-log-in">' .
-        sprintf(__('Вам нужно <a href="%s">войти</a> что бы оставить комментарий.'), wp_login_url(apply_filters('the_permalink', get_permalink($post->ID)))) . '
+        sprintf(__('Вам нужно <a href="%s">войти</a> что бы оставить комментарий.', 'alexander_shnipov'), wp_login_url(apply_filters('the_permalink', get_permalink($post->ID)))) . '
      </p>',
 
       'logged_in_as'         => '<p class="logged-in-as">' .
-        sprintf(__('<a href="%1$s" aria-label="Вы вошли как">Вы вошли как %2$s</a>. <a href="%3$s">Выйти?</a>'), get_edit_user_link(), $user_identity, wp_logout_url(apply_filters('the_permalink', get_permalink()))) . '
+        sprintf(__('<a href="%1$s" aria-label="Вы вошли как">Вы вошли как %2$s</a>. <a href="%3$s">Выйти?</a>', 'alexander_shnipov'), get_edit_user_link(), $user_identity, wp_logout_url(apply_filters('the_permalink', get_permalink()))) . '
      </p>',
 
       'comment_notes_before' => '<p class="comment-notes">
-      <span id="email-notes">' . __('Ваш E-mail защищен от спама') . '</span>
+      <span id="email-notes">' . __('Ваш E-mail защищен от спама', 'alexander_shnipov') . '</span>
     </p>',
 
       'comment_notes_after'  => '',
@@ -86,14 +86,14 @@ if (post_password_required()) {
       'class_form'           => 'comment-form',
       'class_submit'         => 'btn btn-hero btn-circled',
       'name_submit'          => 'submit',
-      'title_reply'          => __('Оставьте комментарий'),
-      'title_reply_to'       => __('Ответить %s'),
+      'title_reply'          => __('Оставьте комментарий', 'alexander_shnipov'),
+      'title_reply_to'       => __('Ответить %s', 'alexander_shnipov'),
       'title_reply_before'   => '<h3 id="reply-title" class="comment-reply-title">',
       'title_reply_after'    => '</h3>',
       'cancel_reply_before'  => ' <small>',
       'cancel_reply_after'   => '</small>',
-      'cancel_reply_link'    => __('Отменить отправку'),
-      'label_submit'         => __('Отправить коментарий'),
+      'cancel_reply_link'    => __('Отменить отправку', 'alexander_shnipov'),
+      'label_submit'         => __('Отправить коментарий', 'alexander_shnipov'),
       'submit_button'        => '<button name="%1$s" type="submit" id="%2$s" class="%3$s"> %4$s</button>',
       'submit_field'         => '<p class="form-submit">%1$s %2$s</p>',
       'format'               => 'xhtml5',

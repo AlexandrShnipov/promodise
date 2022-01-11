@@ -110,8 +110,8 @@
                     <!-- пагинация -->
                     <div class="col-lg-12 mb-3">
                         <?php the_posts_pagination(array(
-                            'prev_text'    => __('<span class="p-2 border">« Предыдущие посты</span> '),
-                            'next_text'    => __('<span class="p-2 border">Следующие посты »</span> '),
+                            'prev_text'    => __('<span class="p-2 border">« Предыдущие посты</span> ', 'alexander_shnipov'),
+                            'next_text'    => __('<span class="p-2 border">Следующие посты »</span> ', 'alexander_shnipov'),
                             'before_page_number' => '<span class="p-2 border">',
                             'after_page_number'  => '</span>',
                             

@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="ru">
+<html <?php language_attributes(); ?>>
 
 <head>
   <!-- Required meta tags -->
@@ -44,5 +44,7 @@
 
       </div>
     </div>
+    <div id="weglot_here"></div>
   </nav>
+ 
   <!--MAIN HEADER AREA END -->

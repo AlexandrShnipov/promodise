@@ -639,7 +639,7 @@ class Bootstrap_Walker_Comment extends Walker
   ?>
     <<?php echo $tag; ?> id="comment-<?php comment_ID(); ?>" <?php comment_class('', $comment); ?>>
       <div class="comment-body">
-        <?php _e('Pingback:'); ?> <?php comment_author_link($comment); ?> <?php edit_comment_link(__('Edit'), '<span class="edit-link">', '</span>'); ?>
+        <?php _e('Pingback:'); ?> <?php comment_author_link($comment); ?> <?php edit_comment_link(__('Edit', 'alexander_shnipov'), '<span class="edit-link">', '</span>'); ?>
       </div>
     <?php
   }
@@ -693,9 +693,9 @@ class Bootstrap_Walker_Comment extends Walker
     $show_pending_links = isset($commenter['comment_author']) && $commenter['comment_author'];
 
     if ($commenter['comment_author_email']) {
-      $moderation_note = __('Your comment is awaiting moderation.');
+      $moderation_note = __('Your comment is awaiting moderation.', 'alexander_shnipov');
     } else {
-      $moderation_note = __('Your comment is awaiting moderation. This is a preview; your comment will be visible after it has been approved.');
+      $moderation_note = __('Your comment is awaiting moderation. This is a preview; your comment will be visible after it has been approved.', 'alexander_shnipov');
     }
     ?>
       <<?php echo $tag; ?> <?php comment_class($this->has_children ? 'parent' : '', $comment); ?> id="comment-<?php comment_ID(); ?>">
@@ -734,13 +734,13 @@ class Bootstrap_Walker_Comment extends Walker
               esc_url(get_comment_link($comment, $args)),
               sprintf(
                 /* translators: 1: Comment date, 2: Comment time. */
-                __('%1$s at %2$s'),
+                __('%1$s at %2$s', 'alexander_shnipov'),
                 get_comment_date('', $comment),
                 get_comment_time()
               )
             );
 
-            edit_comment_link(__('(Edit)'), ' &nbsp;&nbsp;', '');
+            edit_comment_link(__('(Edit)', 'alexander_shnipov'), ' &nbsp;&nbsp;', '');
             ?>
           </div>
 
@@ -798,9 +798,9 @@ class Bootstrap_Walker_Comment extends Walker
       $show_pending_links = !empty($commenter['comment_author']);
 
       if ($commenter['comment_author_email']) {
-        $moderation_note = __('Ваш коментарий ждет модерации.');
+        $moderation_note = __('Ваш коментарий ждет модерации.', 'alexander_shnipov');
       } else {
-        $moderation_note = __('Ваш коментарий ждет модерации. Это превью; Ваш комментарий будет опубликован после проверки.');
+        $moderation_note = __('Ваш коментарий ждет модерации. Это превью; Ваш комментарий будет опубликован после проверки.', 'alexander_shnipov');
       }
       ?>
         <<?php echo $tag; ?> id="comment-<?php comment_ID(); ?>" <?php comment_class($this->has_children ? 'parent' : '', $comment); ?>>
@@ -821,7 +821,7 @@ class Bootstrap_Walker_Comment extends Walker
 
               printf(
                 /* translators: %s: Comment author link. */
-                __('%s'),
+                __('%s', 'alexander_shnipov'),
                 sprintf('<h5>%s</h5>', $comment_author)
               );
               ?>
@@ -834,13 +834,13 @@ class Bootstrap_Walker_Comment extends Walker
                   get_comment_time('c'),
                   sprintf(
                     /* translators: 1: Comment date, 2: Comment time. */
-                    __('%1$s at %2$s'),
+                    __('%1$s at %2$s', 'alexander_shnipov'),
                     get_comment_date('j F Y', $comment),
                     get_comment_time('')
                   )
                 );
 
-                edit_comment_link(__('Edit'), ' <span class="edit-link">', '</span>');
+                edit_comment_link(__('Edit'), ' <span class="edit-link">', '</span>', 'alexander_shnipov');
                 ?>
               </div><!-- .comment-metadata -->
 
@@ -881,18 +881,18 @@ class Bootstrap_Walker_Comment extends Walker
   {
     register_post_type('service', array(
       'labels'             => array(
-        'name'               => __('Услуги'), // Основное название типа записи
-        'singular_name'      => __('Услуга'), // отдельное название записи типа Service
-        'add_new'            => __('Добавить новую'),
-        'add_new_item'       => __('Добавить новую услугу'),
-        'edit_item'          => __('Редактировать услугу'),
-        'new_item'           => __('Новая услуга'),
-        'view_item'          => __('Посмотреть услугу'),
-        'search_items'       => __('Найти услугу'),
-        'not_found'          => __('Услуг не найдено'),
-        'not_found_in_trash' => __('В корзине услуг не найдено'),
+        'name'               => __('Услуги', 'alexander_shnipov'), // Основное название типа записи
+        'singular_name'      => __('Услуга', 'alexander_shnipov'), // отдельное название записи типа Service
+        'add_new'            => __('Добавить новую', 'alexander_shnipov'),
+        'add_new_item'       => __('Добавить новую услугу', 'alexander_shnipov'),
+        'edit_item'          => __('Редактировать услугу', 'alexander_shnipov'),
+        'new_item'           => __('Новая услуга', 'alexander_shnipov'),
+        'view_item'          => __('Посмотреть услугу', 'alexander_shnipov'),
+        'search_items'       => __('Найти услугу', 'alexander_shnipov'),
+        'not_found'          => __('Услуг не найдено', 'alexander_shnipov'),
+        'not_found_in_trash' => __('В корзине услуг не найдено', 'alexander_shnipov'),
         'parent_item_colon'  => '',
-        'menu_name'          => __('Услуги')
+        'menu_name'          => __('Услуги', 'alexander_shnipov')
 
       ),
       'public'             => true,
@@ -913,18 +913,18 @@ class Bootstrap_Walker_Comment extends Walker
 
     register_post_type('partners', array(
       'labels'             => array(
-        'name'               => __('Партнеры'), // Основное название типа записи
-        'singular_name'      => __('Партнеры'), // отдельное название записи типа Partners
-        'add_new'            => __('Добавить новую'),
-        'add_new_item'       => __('Добавить нового партнера'),
-        'edit_item'          => __('Редактировать партнера'),
-        'new_item'           => __('Новый партнер'),
-        'view_item'          => __('Посмотреть партнера'),
-        'search_items'       => __('Найти партнера'),
-        'not_found'          => __('партнеров не найдено'),
-        'not_found_in_trash' => __('В корзине партнеров не найдено'),
+        'name'               => __('Партнеры', 'alexander_shnipov'), // Основное название типа записи
+        'singular_name'      => __('Партнеры', 'alexander_shnipov'), // отдельное название записи типа Partners
+        'add_new'            => __('Добавить новую', 'alexander_shnipov'),
+        'add_new_item'       => __('Добавить нового партнера', 'alexander_shnipov'),
+        'edit_item'          => __('Редактировать партнера', 'alexander_shnipov'),
+        'new_item'           => __('Новый партнер', 'alexander_shnipov'),
+        'view_item'          => __('Посмотреть партнера', 'alexander_shnipov'),
+        'search_items'       => __('Найти партнера', 'alexander_shnipov'),
+        'not_found'          => __('партнеров не найдено', 'alexander_shnipov'),
+        'not_found_in_trash' => __('В корзине партнеров не найдено', 'alexander_shnipov'),
         'parent_item_colon'  => '',
-        'menu_name'          => __('Партнеры')
+        'menu_name'          => __('Партнеры', 'alexander_shnipov')
 
       ),
       'public'             => true,
@@ -957,18 +957,18 @@ class Bootstrap_Walker_Comment extends Walker
 
     register_post_type('price', array(
       'labels'             => array(
-        'name'               => __('Тарифы'), // Основное название типа записи
-        'singular_name'      => __('Тариф'), // отдельное название записи типа price
-        'add_new'            => __('Добавить новый'),
-        'add_new_item'       => __('Добавить новый тариф'),
-        'edit_item'          => __('Редактировать тариф'),
-        'new_item'           => __('Новый тариф'),
-        'view_item'          => __('Посмотреть тариф'),
-        'search_items'       => __('Найти тариф'),
-        'not_found'          => __('тарифов не найдено'),
-        'not_found_in_trash' => __('В корзине тарифов не найдено'),
+        'name'               => __('Тарифы', 'alexander_shnipov'), // Основное название типа записи
+        'singular_name'      => __('Тариф', 'alexander_shnipov'), // отдельное название записи типа price
+        'add_new'            => __('Добавить новый', 'alexander_shnipov'),
+        'add_new_item'       => __('Добавить новый тариф', 'alexander_shnipov'),
+        'edit_item'          => __('Редактировать тариф', 'alexander_shnipov'),
+        'new_item'           => __('Новый тариф', 'alexander_shnipov'),
+        'view_item'          => __('Посмотреть тариф', 'alexander_shnipov'),
+        'search_items'       => __('Найти тариф', 'alexander_shnipov'),
+        'not_found'          => __('тарифов не найдено', 'alexander_shnipov'),
+        'not_found_in_trash' => __('В корзине тарифов не найдено', 'alexander_shnipov'),
         'parent_item_colon'  => '',
-        'menu_name'          => __('Тарифы')
+        'menu_name'          => __('Тарифы', 'alexander_shnipov')
 
       ),
       'public'             => true,
@@ -989,18 +989,18 @@ class Bootstrap_Walker_Comment extends Walker
 
     register_post_type('testimonial', array(
       'labels'             => array(
-        'name'               => __('Отзывы'), // Основное название типа записи
-        'singular_name'      => __('Отзыв'), // отдельное название записи типа testimonial
-        'add_new'            => __('Добавить новый'),
-        'add_new_item'       => __('Добавить новый отзыв'),
-        'edit_item'          => __('Редактировать отзыв'),
-        'new_item'           => __('Новый отзыв'),
-        'view_item'          => __('Посмотреть отзыв'),
-        'search_items'       => __('Найти отзыв'),
-        'not_found'          => __('отзывов не найдено'),
-        'not_found_in_trash' => __('В корзине отзывов не найдено'),
+        'name'               => __('Отзывы', 'alexander_shnipov'), // Основное название типа записи
+        'singular_name'      => __('Отзыв', 'alexander_shnipov'), // отдельное название записи типа testimonial
+        'add_new'            => __('Добавить новый', 'alexander_shnipov'),
+        'add_new_item'       => __('Добавить новый отзыв', 'alexander_shnipov'),
+        'edit_item'          => __('Редактировать отзыв', 'alexander_shnipov'),
+        'new_item'           => __('Новый отзыв', 'alexander_shnipov'),
+        'view_item'          => __('Посмотреть отзыв', 'alexander_shnipov'),
+        'search_items'       => __('Найти отзыв', 'alexander_shnipov'),
+        'not_found'          => __('отзывов не найдено', 'alexander_shnipov'),
+        'not_found_in_trash' => __('В корзине отзывов не найдено', 'alexander_shnipov'),
         'parent_item_colon'  => '',
-        'menu_name'          => __('Отзывы')
+        'menu_name'          => __('Отзывы', 'alexander_shnipov')
 
       ),
       'public'             => true,

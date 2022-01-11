@@ -43,6 +43,7 @@
       </div>
     </div>
   </div>
+
 </section>
 <!--  FOOTER AREA END  -->
 
