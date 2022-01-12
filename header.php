@@ -10,6 +10,10 @@
 
   <?php wp_head(); ?>
 
+  <!--! SEO -->
+  <meta name="yandex-verification" content="2d4e45402982418a" />
+  <meta name="google-site-verification" content="YmdujPkwA3j0k4S67K0oYTVVWDNw3TyERMJMY2rlgYc" />
+
 </head>
 
 <body data-spy="scroll" data-target=".fixed-top">

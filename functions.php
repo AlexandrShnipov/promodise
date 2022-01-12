@@ -47,6 +47,27 @@ if (!function_exists('alexander_shnipov_setup')) {
   add_action('after_setup_theme', 'alexander_shnipov_setup');
 }
 
+// ! Создание новой роли - проектный менеджер
+// // Удаляем роль при деактивации нашей темы
+// add_action( 'switch_theme', 'deactivate_my_theme' );
+// function deactivate_my_theme() {
+// 	remove_role( 'developer' );
+// }
+
+// // Добавляем роль при активации нашей темы
+// add_action( 'after_switch_theme', 'activate_my_theme' );
+// function activate_my_theme() {
+// 	add_role( 'developer', 'Разработчик', 
+// 		[
+// 			'read'         => true,  // true разрешает эту возможность
+// 			'edit_posts'   => true,  // true разрешает редактировать посты
+//       'edit_dashboard'   => false,  // true разрешает редактировать посты
+// 			'upload_files' => true,  // может загружать файлы
+//       'publish_posts' => true,  // может публиковать посты
+// 		]
+// 	);
+// }
+
 //! подключение стилей и скриптов
 
 add_action('wp_enqueue_scripts', 'alexander_shnipov_scripts');
