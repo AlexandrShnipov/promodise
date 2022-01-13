@@ -1,0 +1,390 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: alexander-shnipov\n"
+"POT-Creation-Date: 2022-01-13 21:06+0300\n"
+"PO-Revision-Date: \n"
+"Last-Translator: Alexander Shnipov <myemail@gmail.com>\n"
+"Language-Team: My Super Team\n"
+"Language: ru\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n"
+"%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
+"X-Poedit-SourceCharset: UTF-8\n"
+"X-Poedit-KeywordsList: __;_e;_x:1,2c;_ex:1,2c;_n:1,2;_nx:1,2,4c;_n_noop:1,2;"
+"_nx_noop:1,2,3c;esc_attr__;esc_attr_e;esc_html__;esc_html_e\n"
+"X-Poedit-Basepath: ..\n"
+"X-Generator: Poedit 3.0.1\n"
+"X-Poedit-SearchPath-0: .\n"
+"X-Poedit-SearchPathExcluded-0: node_modules\n"
+
+#: 404.php:14
+msgid "error 404"
+msgstr "ошибка 404"
+
+#: 404.php:19
+msgid "This page"
+msgstr "Такая страница"
+
+#: 404.php:22
+msgid "doesn&nbsp;exist"
+msgstr "не&nbsp;существует"
+
+#: 404.php:27
+msgid ""
+"  You are trying to access a page that does not exist. Perhaps it used to be "
+"at this address, but now we have moved it to a new location. Try to find the "
+"information you need in the search. Or go to the main page."
+msgstr ""
+" Вы пытаетесь получить доступ к несуществующей странице. Возможно, раньше "
+"она была по этому адресу, но теперь мы перенесли ее на новое место. "
+"Попробуйте найти нужную информацию в поиске. Или перейти на главную страницу."
+
+#: 404.php:36
+msgid "Go to main page"
+msgstr "Перейти на главную"
+
+#: archive.php:13
+msgid "Rubric"
+msgstr "Рубрика"
+
+#: archive.php:16
+msgid "Posts tagged"
+msgstr "Зписи с меткой"
+
+#: archive.php:19
+msgid "Author posts"
+msgstr "Посты автора"
+
+#: archive.php:22
+msgid "Archive by date"
+msgstr "Архив по дате"
+
+#: archive.php:127
+msgid " Previous Posts "
+msgstr " Предыдущие посты "
+
+#: archive.php:128 home.php:114 search.php:118
+msgid "Next posts "
+msgstr "Следующие посты "
+
+#: comments.php:28
+msgid "Reply"
+msgstr "Ответить"
+
+#: comments.php:45
+msgid "Comments are closed."
+msgstr "Комментарии закрыты."
+
+#: comments.php:63
+msgid ""
+"Save my name, email, and website in this browser for the next time I comment."
+msgstr ""
+"Сохраните свое имя, адрес электронной почты и веб-сайт в этом браузере для "
+"следующего комментария."
+
+#: comments.php:72
+#, php-format
+msgid "You need <a href=\"%s\">to come in</a> to leave a comment."
+msgstr "Вам нужно <a href=\"%s\">войти</a> что бы оставить комментарий."
+
+#: comments.php:76
+#, php-format
+msgid ""
+"<a href=\"%1$s\" aria-label=\"You are logged in as\">You are logged in as "
+"%2$s</a>. <a href=\"%3$s\">Log off?</a>"
+msgstr ""
+"<a href=\"%1$s\" aria-label=\"You are logged in as\">Вы вошли как %2$s</a>. "
+"<a href=\"%3$s\">Выйти??</a>"
+
+#: comments.php:80
+msgid "Your E-mail is protected from spam"
+msgstr "Ваш E-mail защищен от спама"
+
+#: comments.php:89
+msgid "Leave a comment"
+msgstr "Оставьте комментарий"
+
+#: comments.php:90
+#, php-format
+msgid "Reply %s"
+msgstr "Ответить %s"
+
+#: comments.php:95
+msgid "Cancel sending"
+msgstr "Отменить отправку"
+
+#: comments.php:96
+msgid "Send a comment"
+msgstr "Отправить комментарий"
+
+#: footer.php:17
+#, php-format
+msgid "<h4>Information</h4><ul id=\"%1$s\" class=\"%2$s\">%3$s</ul>"
+msgstr "<h4>Информация</h4><ul id=\"%1$s\" class=\"%2$s\">%3$s</ul>"
+
+#: footer.php:30
+#, php-format
+msgid "<h4>Links</h4><ul id=\"%1$s\" class=\"%2$s\">%3$s</ul>"
+msgstr "<h4>Ссылки</h4><ul id=\"%1$s\" class=\"%2$s\">%3$s</ul>"
+
+#: functions.php:138
+msgid "Header Menu"
+msgstr "Меню шапки"
+
+#: functions.php:139
+msgid "Footer Left Menu"
+msgstr "Меню в подвале левое"
+
+#: functions.php:140
+msgid "Footer Right Menu"
+msgstr "Меню в подвале правое"
+
+#: functions.php:253
+msgid "Blog sidebar"
+msgstr "Сайдбар блога"
+
+#: functions.php:262
+msgid "Footer text"
+msgstr "Текст в подвале"
+
+#: functions.php:271
+msgid "Contacts in the footer"
+msgstr "Контакты в подвале"
+
+#: functions.php:334
+msgid "Useful files"
+msgstr "Полезные файлы"
+
+#: functions.php:335
+msgid "URL file"
+msgstr "URL файла"
+
+#: functions.php:336
+msgid "URL file2"
+msgstr "URL файла2"
+
+#: functions.php:337 functions.php:346
+msgid "File name"
+msgstr "Имя файла"
+
+#: functions.php:338 functions.php:355
+msgid "File name2"
+msgstr "Имя файла2"
+
+#: functions.php:342
+msgid "Title"
+msgstr "Заголовок"
+
+#: functions.php:350
+msgid "URL file:"
+msgstr "URL файла:"
+
+#: functions.php:359
+msgid "URL file2:"
+msgstr "URL файла2:"
+
+#: functions.php:665
+msgid "Pingback:"
+msgstr "Pingback:"
+
+#: functions.php:665 functions.php:866
+msgid "Edit"
+msgstr "Редактировать"
+
+#: functions.php:719 functions.php:824
+msgid "Your comment is awaiting moderation."
+msgstr "Ваш комментарий на модерации."
+
+#: functions.php:721
+msgid ""
+"Your comment is awaiting moderation. This is a preview; your comment will be "
+"visible after it has been approved."
+msgstr ""
+"Ваш комментарий ожидает проверки. Это предпросмотр; Ваш комментарий будет "
+"виден после того, как он будет одобрен."
+
+#: functions.php:743
+#, php-format
+msgid "%s <span class=\"says\">says:</span>"
+msgstr "%s <span class=\"says\">сказать:</span>"
+
+#: functions.php:760 functions.php:860
+#, php-format
+msgid "%1$s at %2$s"
+msgstr "%1$s в %2$s"
+
+#: functions.php:766
+msgid "(Edit)"
+msgstr "(Редактировать)"
+
+#: functions.php:826
+msgid ""
+"Your comment is awaiting moderation. This is a preview; Your comment will be "
+"published after verification."
+msgstr ""
+"Ваш комментарий ожидает проверки. Это предпросмотр; Ваш комментарий будет "
+"опубликован после проверки."
+
+#: functions.php:847
+#, php-format
+msgid "%s"
+msgstr ""
+
+#: functions.php:907 functions.php:918
+msgid "Services"
+msgstr "Услуги"
+
+#: functions.php:908
+msgid "Service"
+msgstr "Услуга"
+
+#: functions.php:909 functions.php:941 functions.php:985 functions.php:1017
+msgid "Add new"
+msgstr "Добавить новую"
+
+#: functions.php:910
+msgid "Add new service"
+msgstr "Добавить новую услугу"
+
+#: functions.php:911
+msgid "Edit service"
+msgstr "Редактировать услугу"
+
+#: functions.php:912
+msgid "New service"
+msgstr "Новая услуга"
+
+#: functions.php:913
+msgid "View service"
+msgstr "Посмотреть услугу"
+
+#: functions.php:914
+msgid "Search a service"
+msgstr "Найти услугу"
+
+#: functions.php:915
+msgid "No services found"
+msgstr "Услуг не найдено"
+
+#: functions.php:916
+msgid "No services found in the basket"
+msgstr "Услуг в орзине найдено"
+
+#: functions.php:939 functions.php:940 functions.php:950
+msgid "Partners"
+msgstr "Партнеры"
+
+#: functions.php:942
+msgid "Add new partner"
+msgstr "Добавить нового партнера"
+
+#: functions.php:943
+msgid "Edit partner"
+msgstr "Редактировать партнера"
+
+#: functions.php:944
+msgid "New partner"
+msgstr "Новый партнер"
+
+#: functions.php:945
+msgid "View partners"
+msgstr "Посмотреть партнера"
+
+#: functions.php:946
+msgid "Search a partners"
+msgstr "Найти партнера"
+
+#: functions.php:947
+msgid "partners not found"
+msgstr "партнеров не найдено"
+
+#: functions.php:948
+msgid "No partners found in the basket"
+msgstr "Партнеров в корзине не найдено"
+
+#: functions.php:983 functions.php:994
+msgid "Prices"
+msgstr "Тарифы"
+
+#: functions.php:984
+msgid "Price"
+msgstr "Тариф"
+
+#: functions.php:986
+msgid "Add new price"
+msgstr "Добавить новый тариф"
+
+#: functions.php:987
+msgid "Edit price"
+msgstr "Редактировать тариф"
+
+#: functions.php:988
+msgid "New price"
+msgstr "Новый тамриф"
+
+#: functions.php:989
+msgid "View price"
+msgstr "Посмотреть тариф"
+
+#: functions.php:990
+msgid "Search a price"
+msgstr "Найти тариф"
+
+#: functions.php:991
+msgid "prices not found"
+msgstr "тарифов не найдено"
+
+#: functions.php:992
+msgid "No prices found in the basket"
+msgstr "В корзине тамрифов не найдено"
+
+#: functions.php:1015 functions.php:1026
+msgid "Testimonials"
+msgstr "Отзывы"
+
+#: functions.php:1016
+msgid "Testimonial"
+msgstr "Отзыв"
+
+#: functions.php:1018
+msgid "Add new testimonial"
+msgstr "Добавить новй отзыв"
+
+#: functions.php:1019
+msgid "Edit testimonial"
+msgstr "Редактировать отзыв"
+
+#: functions.php:1020
+msgid "New testimonial"
+msgstr "Новый отзыв"
+
+#: functions.php:1021
+msgid "View testimonial"
+msgstr "Посмотреть отзыв"
+
+#: functions.php:1022
+msgid "Search testimonial"
+msgstr "Найти отзыв"
+
+#: functions.php:1023
+msgid "Testimonials not found"
+msgstr "Отзывов не найдено"
+
+#: functions.php:1024
+msgid "Not found testimonials in trash"
+msgstr "Отзывов в корзине не найдено"
+
+#: home.php:113
+msgid " Previous posts "
+msgstr " Предыдущие посты "
+
+#: search.php:12
+#, php-format
+msgid "Search results by&nbsp;phrase: %s"
+msgstr "Результат поска по&nbsp;фразе: %s"
+
+#: search.php:117
+msgid "Previous posts"
+msgstr "Предыдущие посты"

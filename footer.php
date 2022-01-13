@@ -14,7 +14,7 @@
           'container_class' => 'footer-widget footer-link',
           'menu_class'      => '',
           'echo'            => true,
-          'items_wrap'      => '<h4>Информация</h4><ul id="%1$s" class="%2$s">%3$s</ul>',
+          'items_wrap'      => __('<h4>Information</h4><ul id="%1$s" class="%2$s">%3$s</ul>' , 'alexander_shnipov'),
           'depth'           => 2,
         ]) ?>
 
@@ -27,7 +27,7 @@
           'container_class' => 'footer-widget footer-link',
           'menu_class'      => '',
           'echo'            => true,
-          'items_wrap'      => '<h4>Ссылки</h4><ul id="%1$s" class="%2$s">%3$s</ul>',
+          'items_wrap'      =>  __('<h4>Links</h4><ul id="%1$s" class="%2$s">%3$s</ul>' , 'alexander_shnipov'),
           'depth'           => 2,
         ]) ?>
       </div>

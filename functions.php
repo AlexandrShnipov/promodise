@@ -4,6 +4,8 @@ if (!function_exists('alexander_shnipov_setup')) {
   function alexander_shnipov_setup()
   {
 
+    load_theme_textdomain( 'alexander_shnipov', get_template_directory() . '/languages' );
+
     // !добавляем пользовательский логотип
     add_theme_support('custom-logo', [
       'height'      => 50,
@@ -248,7 +250,7 @@ add_action('widgets_init', 'alexander_shnipov_widgets_init');
 function alexander_shnipov_widgets_init()
 {
   register_sidebar(array(
-    'name'          => esc_html__('Сайдбар блога', 'alexander_shnipov'),
+    'name'          => esc_html__('Blog sidebar', 'alexander_shnipov'),
     'id'            => "sidebar-blog",
     'before_widget' => '<section id="%1$s" class="sidebar-widget %2$s">',
     'after_widget'  => '</section>',
@@ -257,7 +259,7 @@ function alexander_shnipov_widgets_init()
   ));
 
   register_sidebar(array(
-    'name'          => esc_html__('Текст в подвале', 'alexander_shnipov'),
+    'name'          => esc_html__('Footer text', 'alexander_shnipov'),
     'id'            => "sidebar-footer-text",
     'before_widget' => '<div class="footer-widget footer-link %2$s">',
     'after_widget'  => '</div>',
@@ -266,7 +268,7 @@ function alexander_shnipov_widgets_init()
   ));
 
   register_sidebar(array(
-    'name'          => esc_html__('Контакты в подвале', 'alexander_shnipov'),
+    'name'          => esc_html__('Contacts in the footer', 'alexander_shnipov'),
     'id'            => "sidebar-footer-contacts",
     'before_widget' => '<div class="footer-widget footer-text %2$s">',
     'after_widget'  => '</div>',
@@ -329,32 +331,32 @@ class Download_Widget extends WP_Widget
    */
   function form($instance)
   {
-    $title = @$instance['title'] ?: 'Полезные файлы';
-    $file = @$instance['file'] ?: 'URL файла';
-    $file2 = @$instance['file2'] ?: 'URL файла2';
-    $file_name = @$instance['file_name'] ?: 'Название файла';
-    $file2_name = @$instance['file2_name'] ?: 'Название файла2';
+    $title = @$instance['title'] ?: __('Useful files', 'alexander_shnipov');
+    $file = @$instance['file'] ?: __('URL file', 'alexander_shnipov');
+    $file2 = @$instance['file2'] ?: __('URL file2', 'alexander_shnipov');
+    $file_name = @$instance['file_name'] ?: __('File name', 'alexander_shnipov');
+    $file2_name = @$instance['file2_name'] ?: __('File name2', 'alexander_shnipov');
 
 ?>
     <p>
-      <label for="<?php echo $this->get_field_id('title'); ?>"><?php _e('Title'); ?></label>
+      <label for="<?php echo $this->get_field_id('title'); ?>"><?php _e('Title', 'alexander_shnipov'); ?></label>
       <input class="widefat" id="<?php echo $this->get_field_id('title'); ?>" name="<?php echo $this->get_field_name('title'); ?>" type="text" value="<?php echo esc_attr($title); ?>">
     </p>
     <p>
-      <label for="<?php echo $this->get_field_id('file_name'); ?>"><?php _e('Название файла'); ?></label>
+      <label for="<?php echo $this->get_field_id('file_name'); ?>"><?php _e('File name', 'alexander_shnipov'); ?></label>
       <input class="widefat" id="<?php echo $this->get_field_id('file_name'); ?>" name="<?php echo $this->get_field_name('file_name'); ?>" type="text" value="<?php echo esc_attr($file_name); ?>">
     </p>
     <p>
-      <label for="<?php echo $this->get_field_id('file'); ?>"><?php _e('Ссылка на файл:'); ?></label>
+      <label for="<?php echo $this->get_field_id('file'); ?>"><?php _e('URL file:', 'alexander_shnipov'); ?></label>
       <input class="widefat" id="<?php echo $this->get_field_id('file'); ?>" name="<?php echo $this->get_field_name('file'); ?>" type="text" value="<?php echo esc_attr($file); ?>">
     </p>
 
     <p>
-      <label for="<?php echo $this->get_field_id('file2_name'); ?>"><?php _e('Название файла2'); ?></label>
+      <label for="<?php echo $this->get_field_id('file2_name'); ?>"><?php _e('File name2', 'alexander_shnipov'); ?></label>
       <input class="widefat" id="<?php echo $this->get_field_id('file2_name'); ?>" name="<?php echo $this->get_field_name('file2_name'); ?>" type="text" value="<?php echo esc_attr($file2_name); ?>">
     </p>
     <p>
-      <label for="<?php echo $this->get_field_id('file2'); ?>"><?php _e('Ссылка на файл2:'); ?></label>
+      <label for="<?php echo $this->get_field_id('file2'); ?>"><?php _e('URL file2:', 'alexander_shnipov'); ?></label>
       <input class="widefat" id="<?php echo $this->get_field_id('file2'); ?>" name="<?php echo $this->get_field_name('file2'); ?>" type="text" value="<?php echo esc_attr($file2); ?>">
     </p>
   <?php
@@ -819,9 +821,9 @@ class Bootstrap_Walker_Comment extends Walker
       $show_pending_links = !empty($commenter['comment_author']);
 
       if ($commenter['comment_author_email']) {
-        $moderation_note = __('Ваш коментарий ждет модерации.', 'alexander_shnipov');
+        $moderation_note = __('Your comment is awaiting moderation.', 'alexander_shnipov');
       } else {
-        $moderation_note = __('Ваш коментарий ждет модерации. Это превью; Ваш комментарий будет опубликован после проверки.', 'alexander_shnipov');
+        $moderation_note = __('Your comment is awaiting moderation. This is a preview; Your comment will be published after verification.', 'alexander_shnipov');
       }
       ?>
         <<?php echo $tag; ?> id="comment-<?php comment_ID(); ?>" <?php comment_class($this->has_children ? 'parent' : '', $comment); ?>>
@@ -902,18 +904,18 @@ class Bootstrap_Walker_Comment extends Walker
   {
     register_post_type('service', array(
       'labels'             => array(
-        'name'               => __('Услуги', 'alexander_shnipov'), // Основное название типа записи
-        'singular_name'      => __('Услуга', 'alexander_shnipov'), // отдельное название записи типа Service
-        'add_new'            => __('Добавить новую', 'alexander_shnipov'),
-        'add_new_item'       => __('Добавить новую услугу', 'alexander_shnipov'),
-        'edit_item'          => __('Редактировать услугу', 'alexander_shnipov'),
-        'new_item'           => __('Новая услуга', 'alexander_shnipov'),
-        'view_item'          => __('Посмотреть услугу', 'alexander_shnipov'),
-        'search_items'       => __('Найти услугу', 'alexander_shnipov'),
-        'not_found'          => __('Услуг не найдено', 'alexander_shnipov'),
-        'not_found_in_trash' => __('В корзине услуг не найдено', 'alexander_shnipov'),
+        'name'               => __('Services', 'alexander_shnipov'), // Основное название типа записи
+        'singular_name'      => __('Service', 'alexander_shnipov'), // отдельное название записи типа Service
+        'add_new'            => __('Add new', 'alexander_shnipov'),
+        'add_new_item'       => __('Add new service', 'alexander_shnipov'),
+        'edit_item'          => __('Edit service', 'alexander_shnipov'),
+        'new_item'           => __('New service', 'alexander_shnipov'),
+        'view_item'          => __('View service', 'alexander_shnipov'),
+        'search_items'       => __('Search a service', 'alexander_shnipov'),
+        'not_found'          => __('No services found', 'alexander_shnipov'),
+        'not_found_in_trash' => __('No services found in the basket', 'alexander_shnipov'),
         'parent_item_colon'  => '',
-        'menu_name'          => __('Услуги', 'alexander_shnipov')
+        'menu_name'          => __('Services', 'alexander_shnipov')
 
       ),
       'public'             => true,
@@ -934,18 +936,18 @@ class Bootstrap_Walker_Comment extends Walker
 
     register_post_type('partners', array(
       'labels'             => array(
-        'name'               => __('Партнеры', 'alexander_shnipov'), // Основное название типа записи
-        'singular_name'      => __('Партнеры', 'alexander_shnipov'), // отдельное название записи типа Partners
-        'add_new'            => __('Добавить новую', 'alexander_shnipov'),
-        'add_new_item'       => __('Добавить нового партнера', 'alexander_shnipov'),
-        'edit_item'          => __('Редактировать партнера', 'alexander_shnipov'),
-        'new_item'           => __('Новый партнер', 'alexander_shnipov'),
-        'view_item'          => __('Посмотреть партнера', 'alexander_shnipov'),
-        'search_items'       => __('Найти партнера', 'alexander_shnipov'),
-        'not_found'          => __('партнеров не найдено', 'alexander_shnipov'),
-        'not_found_in_trash' => __('В корзине партнеров не найдено', 'alexander_shnipov'),
+        'name'               => __('Partners', 'alexander_shnipov'), // Основное название типа записи
+        'singular_name'      => __('Partners', 'alexander_shnipov'), // отдельное название записи типа Partners
+        'add_new'            => __('Add new', 'alexander_shnipov'),
+        'add_new_item'       => __('Add new partner', 'alexander_shnipov'),
+        'edit_item'          => __('Edit partner', 'alexander_shnipov'),
+        'new_item'           => __('New partner', 'alexander_shnipov'),
+        'view_item'          => __('View partners', 'alexander_shnipov'),
+        'search_items'       => __('Search a partners', 'alexander_shnipov'),
+        'not_found'          => __('partners not found', 'alexander_shnipov'),
+        'not_found_in_trash' => __('No partners found in the basket', 'alexander_shnipov'),
         'parent_item_colon'  => '',
-        'menu_name'          => __('Партнеры', 'alexander_shnipov')
+        'menu_name'          => __('Partners', 'alexander_shnipov')
 
       ),
       'public'             => true,
@@ -978,18 +980,18 @@ class Bootstrap_Walker_Comment extends Walker
 
     register_post_type('price', array(
       'labels'             => array(
-        'name'               => __('Тарифы', 'alexander_shnipov'), // Основное название типа записи
-        'singular_name'      => __('Тариф', 'alexander_shnipov'), // отдельное название записи типа price
-        'add_new'            => __('Добавить новый', 'alexander_shnipov'),
-        'add_new_item'       => __('Добавить новый тариф', 'alexander_shnipov'),
-        'edit_item'          => __('Редактировать тариф', 'alexander_shnipov'),
-        'new_item'           => __('Новый тариф', 'alexander_shnipov'),
-        'view_item'          => __('Посмотреть тариф', 'alexander_shnipov'),
-        'search_items'       => __('Найти тариф', 'alexander_shnipov'),
-        'not_found'          => __('тарифов не найдено', 'alexander_shnipov'),
-        'not_found_in_trash' => __('В корзине тарифов не найдено', 'alexander_shnipov'),
+        'name'               => __('Prices', 'alexander_shnipov'), // Основное название типа записи
+        'singular_name'      => __('Price', 'alexander_shnipov'), // отдельное название записи типа price
+        'add_new'            => __('Add new', 'alexander_shnipov'),
+        'add_new_item'       => __('Add new price', 'alexander_shnipov'),
+        'edit_item'          => __('Edit price', 'alexander_shnipov'),
+        'new_item'           => __('New price', 'alexander_shnipov'),
+        'view_item'          => __('View price', 'alexander_shnipov'),
+        'search_items'       => __('Search a price', 'alexander_shnipov'),
+        'not_found'          => __('prices not found', 'alexander_shnipov'),
+        'not_found_in_trash' => __('No prices found in the basket', 'alexander_shnipov'),
         'parent_item_colon'  => '',
-        'menu_name'          => __('Тарифы', 'alexander_shnipov')
+        'menu_name'          => __('Prices', 'alexander_shnipov')
 
       ),
       'public'             => true,
@@ -1010,18 +1012,18 @@ class Bootstrap_Walker_Comment extends Walker
 
     register_post_type('testimonial', array(
       'labels'             => array(
-        'name'               => __('Отзывы', 'alexander_shnipov'), // Основное название типа записи
-        'singular_name'      => __('Отзыв', 'alexander_shnipov'), // отдельное название записи типа testimonial
-        'add_new'            => __('Добавить новый', 'alexander_shnipov'),
-        'add_new_item'       => __('Добавить новый отзыв', 'alexander_shnipov'),
-        'edit_item'          => __('Редактировать отзыв', 'alexander_shnipov'),
-        'new_item'           => __('Новый отзыв', 'alexander_shnipov'),
-        'view_item'          => __('Посмотреть отзыв', 'alexander_shnipov'),
-        'search_items'       => __('Найти отзыв', 'alexander_shnipov'),
-        'not_found'          => __('отзывов не найдено', 'alexander_shnipov'),
-        'not_found_in_trash' => __('В корзине отзывов не найдено', 'alexander_shnipov'),
+        'name'               => __('Testimonials', 'alexander_shnipov'), // Основное название типа записи
+        'singular_name'      => __('Testimonial', 'alexander_shnipov'), // отдельное название записи типа testimonial
+        'add_new'            => __('Add new', 'alexander_shnipov'),
+        'add_new_item'       => __('Add new testimonial', 'alexander_shnipov'),
+        'edit_item'          => __('Edit testimonial', 'alexander_shnipov'),
+        'new_item'           => __('New testimonial', 'alexander_shnipov'),
+        'view_item'          => __('View testimonial', 'alexander_shnipov'),
+        'search_items'       => __('Search testimonial', 'alexander_shnipov'),
+        'not_found'          => __('Testimonials not found', 'alexander_shnipov'),
+        'not_found_in_trash' => __('Not found testimonials in trash', 'alexander_shnipov'),
         'parent_item_colon'  => '',
-        'menu_name'          => __('Отзывы', 'alexander_shnipov')
+        'menu_name'          => __('Testimonials', 'alexander_shnipov')
 
       ),
       'public'             => true,

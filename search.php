@@ -9,7 +9,7 @@
 
           <!-- заголовок результатов поиска -->
           <h1 class="text-white">
-            <?php printf(esc_html__('Результаты поиска по&nbsp;фразе: %s', 'alexander_shnipov'), '<span>' . get_search_query() . '</span>'); ?>
+            <?php printf(esc_html__('Search results by&nbsp;phrase: %s', 'alexander_shnipov'), '<span>' . get_search_query() . '</span>'); ?>
           </h1>
           <!-- заголовок результатов поиска -->
 
@@ -114,8 +114,8 @@
           <!-- пагинация -->
           <div class="col-lg-12 mb-3">
             <?php the_posts_pagination(array(
-              'prev_text'    => __('<span class="p-2 border">« Предыдущие посты</span> ', 'alexander_shnipov'),
-              'next_text'    => __('<span class="p-2 border">Следующие посты »</span> ', 'alexander_shnipov'),
+              'prev_text'    => '<span class="p-2 border">«' . __('Previous posts', 'alexander_shnipov') . '</span>' ,
+              'next_text'    => '<span class="p-2 border">' . __('Next posts ', 'alexander_shnipov') . '»</span> ',
               'before_page_number' => '<span class="p-2 border">',
               'after_page_number'  => '</span>',
             )); ?>

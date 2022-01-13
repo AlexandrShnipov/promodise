@@ -10,16 +10,16 @@
           <h1 class="text-white">
             <?php
             if (is_category()) {
-              echo __('<small>Рубрика </small><br/>', 'alexander_shnipov') . get_queried_object()->name;
+              echo '<small>' . __('Rubric', 'alexander_shnipov') . '</small><br/>' . get_queried_object()->name;
             }
             if (is_tag()) {
-              echo __('<small>Записи с меткой </small><br/>', 'alexander_shnipov') . get_queried_object()->name;
+              echo '<small>' .  __('Posts tagged', 'alexander_shnipov') . '</small><br/>' . get_queried_object()->name;
             }
             if (is_author()) {
-              echo __('<small>Записи автора </small><br/>', 'alexander_shnipov') . get_the_author_meta('display_name');
+              echo '<small>' . __('Author posts', 'alexander_shnipov') . '</small><br/>' . get_the_author_meta('display_name');
             }
             if (is_date()) {
-              echo __('<small>Архив по дате </small><br/>', 'alexander_shnipov') . get_the_date( 'j F Y' );
+              echo '<small>' . __('Archive by date', 'alexander_shnipov') . '</small><br/>' . get_the_date( 'j F Y' );
             }
             ?>
           </h1>
@@ -124,8 +124,8 @@
           <!-- пагинация -->
           <div class="col-lg-12 mb-3">
             <?php the_posts_pagination(array(
-              'prev_text'    => __('<span class="p-2 border">« Предыдущие посты</span> ', 'alexander_shnipov'),
-              'next_text'    => __('<span class="p-2 border">Следующие посты »</span> ', 'alexander_shnipov'),
+              'prev_text'    => '<span class="p-2 border">«' . __(' Previous Posts ', 'alexander_shnipov') . '</span>',
+              'next_text'    => '<span class="p-2 border">' . __('Next posts ', 'alexander_shnipov') . '»</span>',
               'before_page_number' => '<span class="p-2 border">',
               'after_page_number'  => '</span>',
 
