@@ -11,7 +11,11 @@ if (post_password_required()) {
   // You can start editing here -- including this comment!
   if (have_comments()) :
   ?>
-    <h3 class="mb-5">Комментарии:</h3>
+    <h3 class="mb-5">
+    <?php
+    echo __('Comments', 'alexander_shnipov')
+    ?>  
+   </h3>
 
     <?php the_comments_navigation(); ?>
 

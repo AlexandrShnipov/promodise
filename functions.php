@@ -49,26 +49,31 @@ if (!function_exists('alexander_shnipov_setup')) {
   add_action('after_setup_theme', 'alexander_shnipov_setup');
 }
 
-// ! Создание новой роли - проектный менеджер
-// // Удаляем роль при деактивации нашей темы
-// add_action( 'switch_theme', 'deactivate_my_theme' );
-// function deactivate_my_theme() {
-// 	remove_role( 'developer' );
-// }
+// ! Создание новой роли
+//Удаляем роль при деактивации нашей темы
+add_action( 'switch_theme', 'deactivate_my_theme' );
+function deactivate_my_theme() {
+	remove_role( 'project_manager' );
+}
 
-// // Добавляем роль при активации нашей темы
-// add_action( 'after_switch_theme', 'activate_my_theme' );
-// function activate_my_theme() {
-// 	add_role( 'developer', 'Разработчик', 
-// 		[
-// 			'read'         => true,  // true разрешает эту возможность
-// 			'edit_posts'   => true,  // true разрешает редактировать посты
-//       'edit_dashboard'   => false,  // true разрешает редактировать посты
-// 			'upload_files' => true,  // может загружать файлы
-//       'publish_posts' => true,  // может публиковать посты
-// 		]
-// 	);
-// }
+//Добавляем роль при активации нашей темы
+add_action( 'after_switch_theme', 'activate_my_theme' );
+function activate_my_theme() {
+  $author = get_role( 'author' );
+	add_role( 'project_manager', 'Менеджер', $author->capabilities
+		// [
+		// 	'read'         => true,  // true разрешает эту возможность
+		// 	'edit_posts'   => false,  // true разрешает редактировать посты
+    //   'edit_dashboard'   => false,  // true разрешает редактировать посты
+		// 	'upload_files' => true,  // может загружать файлы
+    //   'publish_posts' => true,  // может публиковать посты
+		// ]
+	);
+
+  $administrator = get_role( 'administrator' );
+	add_role( 'developer', 'Разработчик', $administrator->capabilities	
+	);
+}
 
 //! подключение стилей и скриптов
 
@@ -1078,7 +1083,7 @@ class Bootstrap_Walker_Comment extends Walker
       if (empty($name) or empty($email) or empty($phone) or empty($message)) {
         # Отправляем ошибку 400 (bad request).
         http_response_code(400);
-        echo "Пожалуйста заполните все обязательные поля.";
+        echo __("Please fill in all required fields.",'alexander_shnipov');
         exit;
       }
 
@@ -1097,16 +1102,16 @@ class Bootstrap_Walker_Comment extends Walker
       if ($success) {
         # Set a 200 (okay) response code.
         http_response_code(200);
-        echo "Спасибо! Ваше сообщение отправлено.";
+        echo __("Thanks! Your message has been sent." , 'alexander_shnipov');
       } else {
         # Set a 500 (internal server error) response code.
         http_response_code(500);
-        echo "Oops! Что-то пошло не так, не получилось отправить сообщение.";
+        echo __("Oops! Something went wrong, the message could not be sent.", 'alexander_shnipov');
       }
     } else {
       # Not a POST request, set a 403 (forbidden) response code.
       http_response_code(403);
-      echo "Не получилось отправить, попробуйте позже.";
+      echo __("Failed to send, please try again later.", 'alexander_shnipov');
     }
 
     wp_die();

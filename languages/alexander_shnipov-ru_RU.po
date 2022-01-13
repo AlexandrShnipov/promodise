@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: alexander-shnipov\n"
-"POT-Creation-Date: 2022-01-13 21:06+0300\n"
+"POT-Creation-Date: 2022-01-13 21:40+0300\n"
 "PO-Revision-Date: \n"
 "Last-Translator: Alexander Shnipov <myemail@gmail.com>\n"
 "Language-Team: My Super Team\n"
@@ -69,27 +69,31 @@ msgstr " Предыдущие посты "
 msgid "Next posts "
 msgstr "Следующие посты "
 
-#: comments.php:28
+#: comments.php:16
+msgid "Comments"
+msgstr "Комментарии"
+
+#: comments.php:32
 msgid "Reply"
 msgstr "Ответить"
 
-#: comments.php:45
+#: comments.php:49
 msgid "Comments are closed."
 msgstr "Комментарии закрыты."
 
-#: comments.php:63
+#: comments.php:67
 msgid ""
 "Save my name, email, and website in this browser for the next time I comment."
 msgstr ""
 "Сохраните свое имя, адрес электронной почты и веб-сайт в этом браузере для "
 "следующего комментария."
 
-#: comments.php:72
+#: comments.php:76
 #, php-format
 msgid "You need <a href=\"%s\">to come in</a> to leave a comment."
 msgstr "Вам нужно <a href=\"%s\">войти</a> что бы оставить комментарий."
 
-#: comments.php:76
+#: comments.php:80
 #, php-format
 msgid ""
 "<a href=\"%1$s\" aria-label=\"You are logged in as\">You are logged in as "
@@ -98,24 +102,24 @@ msgstr ""
 "<a href=\"%1$s\" aria-label=\"You are logged in as\">Вы вошли как %2$s</a>. "
 "<a href=\"%3$s\">Выйти??</a>"
 
-#: comments.php:80
+#: comments.php:84
 msgid "Your E-mail is protected from spam"
 msgstr "Ваш E-mail защищен от спама"
 
-#: comments.php:89
+#: comments.php:93
 msgid "Leave a comment"
 msgstr "Оставьте комментарий"
 
-#: comments.php:90
+#: comments.php:94
 #, php-format
 msgid "Reply %s"
 msgstr "Ответить %s"
 
-#: comments.php:95
+#: comments.php:99
 msgid "Cancel sending"
 msgstr "Отменить отправку"
 
-#: comments.php:96
+#: comments.php:100
 msgid "Send a comment"
 msgstr "Отправить комментарий"
 
@@ -375,6 +379,22 @@ msgstr "Отзывов не найдено"
 #: functions.php:1024
 msgid "Not found testimonials in trash"
 msgstr "Отзывов в корзине не найдено"
+
+#: functions.php:1081
+msgid "Please fill in all required fields."
+msgstr "Пожалуйста заполните все обязательные поля."
+
+#: functions.php:1100
+msgid "Thanks! Your message has been sent."
+msgstr "Спасибо! Ваше сообщение отправлено."
+
+#: functions.php:1104
+msgid "Oops! Something went wrong, the message could not be sent."
+msgstr "Oops! Что-то пошло не так, не получилось отправить сообщение."
+
+#: functions.php:1109
+msgid "Failed to send, please try again later."
+msgstr "Не получилось отправить, попробуйте позже."
 
 #: home.php:113
 msgid " Previous posts "
