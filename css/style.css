@@ -1415,6 +1415,9 @@ BLOG SINGLE
     display: initial;
 }
 
+img.avatar.apsl-avatar-social-login.avatar-80.photo{
+    margin-right: 24px;
+}
 
 /*--------------------------
  FOOTER

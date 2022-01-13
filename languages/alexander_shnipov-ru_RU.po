@@ -403,7 +403,7 @@ msgstr " Предыдущие посты "
 #: search.php:12
 #, php-format
 msgid "Search results by&nbsp;phrase: %s"
-msgstr "Результат поска по&nbsp;фразе: %s"
+msgstr "Результат поиска по&nbsp;фразе: %s"
 
 #: search.php:117
 msgid "Previous posts"
